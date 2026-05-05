@@ -17,3 +17,83 @@ header h1 {
     font-size: 2.5rem;
     color: #ffffff;
 }
+
+/* Steckbrief Styling */
+.steckbrief-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background: linear-gradient(135deg, #fff5f0 0%, #ffe8e0 100%);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(200, 80, 40, 0.15);
+}
+
+.steckbrief-title {
+    text-align: center;
+    font-size: 2.2rem;
+    color: #c85028;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.steckbrief-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.steckbrief-card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 5px solid #c85028;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.steckbrief-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(200, 80, 40, 0.2);
+}
+
+.steckbrief-card-title {
+    font-size: 1.1rem;
+    color: #c85028;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.steckbrief-card-content {
+    color: #333333;
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+.steckbrief-description {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #c85028;
+    font-size: 1rem;
+    color: #333333;
+    line-height: 1.8;
+}
+
+.steckbrief-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+@media (max-width: 600px) {
+    .steckbrief-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .steckbrief-title {
+        font-size: 1.8rem;
+    }
+}
