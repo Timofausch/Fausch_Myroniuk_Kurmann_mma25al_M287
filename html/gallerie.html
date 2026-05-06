@@ -6,63 +6,12 @@
     <title>Galerie - Roter Panda</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <style>
-        .gallery-container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 20px;
-        }
-        .gallery-title {
-            text-align: center;
-            font-size: 2rem;
-            color: #c85028;
-            margin-bottom: 30px;
-        }
-        .video-section {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        .video-section h2 {
-            color: #c85028;
-            margin-top: 0;
-        }
-        video {
-            width: 100%;
-            max-width: 600px;
-            border-radius: 10px;
-            display: block;
-            margin: 0 auto;
-        }
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 15px;
-        }
-        .gallery-item {
-            background: #fff;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-        .gallery-item:hover {
-            transform: scale(1.05);
-        }
-        .gallery-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            display: block;
-        }
-    </style>
+    
 </head>
 <body>
 
-    <header class="w3-container w3-green">
-        <h1 class="w3-xxxlarge">🖼️ Galerie</h1>
+    <header class="w3-container site-header">
+        <h1 class="w3-xxxlarge">Abschlussarbeit M287</h1>
     </header>
 
     <nav class="w3-bar w3-border w3-light-grey w3-large">
@@ -73,47 +22,73 @@
     </nav>
 
     <div class="gallery-container">
-        <div class="gallery-title">📸 Rote Pandas - Galerie</div>
+        <div class="gallery-title">Galerie</div>
 
-        <!-- Video Section -->
-        <div class="video-section">
-            <h2>🎥 Video - Roter Panda</h2>
-            <video controls width="600">
-                <source src="../media/panda-video.mp4" type="video/mp4">
-                Dein Browser unterstützt das Video-Tag nicht.
-            </video>
-            <p style="text-align: center; color: #666; margin-top: 10px;">
-                Ersetze "panda-video.mp4" mit deinem eigenen Video-File im /media/ Ordner
-            </p>
+        <div class="gallery-grid">
+
+            <div class="gallery-item">
+                <img src="../img/alexas_fotos-animal-4418773_1920.jpg" alt="Roter Panda 1">
+            </div>
+            <div class="gallery-item">
+                <img src="../img/alexas_fotos-little-panda-3161290_1920.jpg" alt="Roter Panda 2">
+            </div>
+            <div class="gallery-item">
+                <img src="../img/alexas_fotos-little-panda-3508116_1920.jpg" alt="Roter Panda 3">
+            </div>
+            <div class="gallery-item">
+                <img src="../img/alexas_fotos-red-panda-4211083_1920.jpg" alt="Roter Panda 4">
+            </div>
+            <div class="gallery-item hidden">
+                <img src="../img/pen_ash-red-panda-4366264_1920.jpg" alt="Roter Panda 5">
+            </div>
+            <div class="gallery-item hidden">
+                <img src="../img/wildfaces-little-panda-7504633_1920.jpg" alt="Roter Panda 6">
+            </div>
         </div>
 
-        <!-- Image Gallery -->
-        <h2 style="color: #c85028;">📷 Bildergalerie</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="../img/panda1.jpg" alt="Roter Panda 1">
-            </div>
-            <div class="gallery-item">
-                <img src="../img/panda2.jpg" alt="Roter Panda 2">
-            </div>
-            <div class="gallery-item">
-                <img src="../img/panda3.jpg" alt="Roter Panda 3">
-            </div>
-            <div class="gallery-item">
-                <img src="../img/panda4.jpg" alt="Roter Panda 4">
-            </div>
-            <div class="gallery-item">
-                <img src="../img/panda5.jpg" alt="Roter Panda 5">
-            </div>
-            <div class="gallery-item">
-                <img src="../img/panda6.jpg" alt="Roter Panda 6">
-            </div>
+        <div class="load-more-container">
+            <button id="load-more-btn" class="btn btn-primary">Mehr laden</button>
         </div>
     </div>
 
-    <footer class="w3-container w3-light-blue">
-        <p>Dies ist mein Footer</p>
+    <div class="media-section">
+        <h2>Audio</h2>
+        <audio controls preload="none" class="media-player">
+            <source src="../media/audio/How the Red Panda Sound_ _ Call _ Animal planet kingdom _ Wildlife _ noise.mp3" type="audio/mpeg">
+            Dein Browser unterstützt das Audio-Tag nicht.
+        </audio>
+        <p>So verständigen sich also Rote Pandas.</p>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div>
+                <p class="footer-brand">Abschlussarbeit M287</p>
+            </div>
+        </div>
+        <div class="footer-nav-line">
+            <a href="../index.html">Home</a>
+            <span>•</span>
+            <a href="facts.html">Facts</a>
+            <span>•</span>
+            <a href="Steckbrief.html">Steckbrief</a>
+            <span>•</span>
+            <a href="gallerie.html">Gallerie</a>
+        </div>
+        <div class="footer-copy">
+            <small>© 2026 Abschlussarbeit M287 • gestaltet von Fausch, Myroniuk, Kurmann</small>
+        </div>
     </footer>
+
+    <script>
+        document.getElementById('load-more-btn').addEventListener('click', function() {
+            const hiddenItems = document.querySelectorAll('.gallery-item.hidden');
+            hiddenItems.forEach(item => {
+                item.classList.remove('hidden');
+            });
+            this.style.display = 'none'; // Button ausblenden nach dem Laden
+        });
+    </script>
 
 </body>
 </html>

@@ -1,24 +1,67 @@
+/**
+ * ========================================
+ * FARB-PALETTE - Roter Panda Thema
+ * ========================================
+ * Primärfarbe (Rotes Panda-Fell): #d9534f, #c85028
+ * Sekundärfarbe (Waldgrün): #2f5f45, #1d3b29
+ * Akzentfarbe (Wärmeton): #f4a261
+ * Neutral Hell: #f5f6f5, #ffffff, #fdfbf7
+ * Text Dunkel: #333333, #4a4a42
+ */
+
+/* ========================================
+ * GLOBALE STILE & GRUNDLAYOUT
+ * ========================================
+ * Basis-Styling für alle Elemente,
+ * Schriftarten und Farbschema für den roten Panda
+ */
+
 /* Allgemeine Schriftart, Schriftgröße und Farben */
 :root {
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    color: #222222;
-    
+    color: #333333;
+    background-color: #f5f6f5;
 }
 
-:root {
-    color: #3e393998;
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f5f6f5;
+    color: #333333;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
 header, footer, nav {
     font-size: 1rem;
 }
 
+/* Gemeinsamer Header-Stil: gleiche Farbe wie Footer */
+.site-header {
+    background: #1f3f2b;
+    color: #ffffff;
+}
+
+/* Header: Waldgrün als Hintergrund für roten Panda Kontext */
 header h1 {
     font-size: 2.5rem;
     color: #ffffff;
 }
 
-/* Steckbrief Styling */
+/* ========================================
+ * STECKBRIEF PAGE STYLING
+ * ========================================
+ * Kartenbasiertes Layout mit roten Panda Farben
+ * Warme Orangetöne für den Text und Rahmen
+ */
+
 .steckbrief-container {
     max-width: 900px;
     margin: 40px auto;
@@ -28,6 +71,7 @@ header h1 {
     box-shadow: 0 8px 20px rgba(200, 80, 40, 0.15);
 }
 
+/* Steckbrief Titel: Rotes Panda-Orange */
 .steckbrief-title {
     text-align: center;
     font-size: 2.2rem;
@@ -36,6 +80,8 @@ header h1 {
     font-weight: bold;
 }
 
+
+/* Steckbrief Grid: 2-spaltig für Infokarten */
 .steckbrief-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -43,6 +89,7 @@ header h1 {
     margin-bottom: 30px;
 }
 
+/* Steckbrief Karten: Weiß mit roten Panda-Akzent-Balken */
 .steckbrief-card {
     background: #ffffff;
     padding: 20px;
@@ -52,11 +99,13 @@ header h1 {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Hover-Effekt: Karte hebt sich an mit wärmerer Schattierung */
 .steckbrief-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 15px rgba(200, 80, 40, 0.2);
 }
 
+/* Steckbrief Kartentitel: Rotes Panda-Orange (#c85028) */
 .steckbrief-card-title {
     font-size: 1.1rem;
     color: #c85028;
@@ -64,12 +113,14 @@ header h1 {
     margin-bottom: 10px;
 }
 
+/* Steckbrief Kartentext: Dunkles, leserliches Grau */
 .steckbrief-card-content {
     color: #333333;
     line-height: 1.7;
     font-size: 0.95rem;
 }
 
+/* Steckbrief Beschreibungsblock: Betonung mit roten Panda-Rahmen */
 .steckbrief-description {
     background: #ffffff;
     padding: 25px;
@@ -81,6 +132,7 @@ header h1 {
     line-height: 1.8;
 }
 
+/* Steckbrief Bilder: Responsive und gerundet */
 .steckbrief-image {
     max-width: 100%;
     height: auto;
@@ -88,6 +140,7 @@ header h1 {
     margin: 20px 0;
 }
 
+/* Responsive: 1-spaltig auf kleinen Bildschirmen */
 @media (max-width: 600px) {
     .steckbrief-grid {
         grid-template-columns: 1fr;
@@ -97,3 +150,1013 @@ header h1 {
         font-size: 1.8rem;
     }
 }
+/* ========================================
+ * GALERIE PAGE STYLING
+ * ========================================
+ * Bildergalerie mit Graustufeneffekt beim Laden,
+ * Farb-Übergang bei Hover
+ */
+
+/* Galerie Container: Zentriert mit max. Breite */
+.gallery-container {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+/* Galerie Titel: Rotes Panda-Orange */
+.gallery-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #c85028;
+    margin-bottom: 20px;
+}
+
+/* Galerie Grid: 2 Spalten, responsive */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+/* Galerie Item: Weiße Karte mit Schatten */
+.gallery-item {
+    background: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover-Effekt: Karte hebt sich an */
+.gallery-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* Galerie Bilder: Graustufen -> Farbe bei Hover */
+.gallery-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+/* Bilder bei Hover: Farbig + leicht gezoomt */
+.gallery-item:hover img {
+    filter: none;
+    transform: scale(1.03);
+}
+
+/* Responsive: 1 Spalte auf kleinen Bildschirmen */
+@media (max-width: 780px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Hidden Galerie Items: Beim Laden verborgen, sichtbar bei "Mehr laden" */
+.gallery-item.hidden {
+    display: none;
+}
+
+/* "Mehr laden" Button Container: Zentriert */
+.load-more-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* ========================================
+ * MEDIA SECTION STYLING (Audio/Video)
+ * ========================================
+ * Zentrierte Medienbereiche mit einheitlichem Layout
+ */
+
+/* Media Section: Zentriert mit Abstand */
+.media-section {
+    text-align: center;
+    margin: 40px 0;
+}
+
+/* Media Player (Audio/Video): Responsiv zentriert */
+.media-section .media-player {
+    width: min(720px, 100%);
+    display: block;
+    margin: 12px auto 0;
+}
+
+/* ========================================
+ * NAVIGATION STYLING
+ * ========================================
+ * Einheitliche Nav-Links mit Hover-Effekten
+ */
+
+/* Nav-Links: Sanfte Farbübergänge */
+nav.w3-bar a.w3-bar-item.w3-button {
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Nav-Links Hover: Header/Footer-Grün */
+nav.w3-bar a.w3-bar-item.w3-button:hover {
+    background-color: #1f3f2b;
+    color: #ffffff;
+}
+
+/* ========================================
+ * HOMEPAGE STYLES
+ * ========================================
+ * Hero-Sektion, Video, Inhaltsblöcke,
+ * FAQ und interaktive Elemente
+ */
+
+/* Home Page Container */
+.home-page {
+    overflow: hidden;
+}
+
+/* Hero-Sektion: Wald-Grün Overlay über Panda-Bild */
+.home-hero {
+    min-height: 70vh;
+    background: linear-gradient(180deg, rgba(44, 65, 49, 0.8), rgba(28, 42, 31, 0.8)),
+        url("../img/alexas_fotos-little-panda-3161290_1920.jpg") center/cover no-repeat;
+    color: #ffffff;
+    display: grid;
+    place-items: center;
+    padding: 80px 20px;
+    text-align: center;
+    position: relative;
+}
+
+/* Hero Overlay-Effekt: Sanfte Lichtstrahlung oben rechts */
+.home-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.08), transparent 35%);
+    pointer-events: none;
+}
+
+/* Hero-Text Container: Zentriert mit max. Breite */
+.hero-copy {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+}
+
+/* ========================================
+ * VIDEO SECTION - HOMEPAGE
+ * ========================================
+ * Warme orangerot-beige Box für Video
+ */
+
+.home-video {
+    padding: 40px 20px 0;
+}
+
+/* Video Media Section: Warmer Orangeton mit softem Glow */
+.home-video .media-section {
+    background: linear-gradient(135deg, #fff4ee, #ffefdf);
+    border-radius: 28px;
+    padding: 28px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(217, 83, 79, 0.12);
+}
+
+/* Video-Titel: Rotes Panda-Braun */
+.home-video .media-section h2 {
+    color: #a23a2d;
+    margin-top: 0;
+}
+
+/* Video Player: Responsiv und gerundet */
+.home-video .media-player {
+    width: 100%;
+    max-width: 900px;
+    border-radius: 16px;
+    margin-top: 20px;
+}
+
+/* ========================================
+ * FAQ SECTION - HOMEPAGE
+ * ========================================
+ * Häufig gestellte Fragen mit rotem Panda Akzent
+ */
+
+/* FAQ Container: Creme-weißer Hintergrund */
+.section-faq {
+    background: #fdfbf7;
+    border-radius: 24px;
+    padding: 40px 30px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.05);
+    margin-top: 20px;
+}
+
+/* FAQ-Titel: Rotes Panda-Braun */
+.section-faq h2 {
+    margin-top: 0;
+    color: #a23a2d;
+}
+
+/* FAQ Details: Weiß mit rotem Panda-Balken */
+.section-faq details {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 18px 22px;
+    margin-top: 16px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid #d9534f;
+}
+
+/* FAQ Summary (Frage): Clickable, fett */
+.section-faq summary {
+    cursor: pointer;
+    font-weight: 700;
+    outline: none;
+}
+
+/* FAQ Antwort-Text: Dunkelgrau, lesbar */
+.section-faq p {
+    margin: 12px 0 0;
+    color: #4a4a42;
+    line-height: 1.75;
+}
+
+/* ========================================
+ * HERO TEXT STYLING
+ * ========================================
+ * Schriftstärken und Layout für Hero-Abschnitt
+ */
+
+/* Eyebrow-Text: Kleingeschriebenes Label über Haupttitel */
+.hero-copy .eyebrow {
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    opacity: 0.8;
+    margin-bottom: 18px;
+}
+
+/* Hero Haupttitel: Groß und eindrückich */
+.hero-copy h1 {
+    margin: 0 0 18px;
+    font-size: clamp(3rem, 4vw, 5rem);
+    line-height: 0.95;
+}
+
+/* Hero Unter-Text: Lesbar und informativ */
+.hero-copy p {
+    max-width: 680px;
+    margin: 0 auto 28px;
+    font-size: 1.05rem;
+    color: #eef1e8;
+}
+
+/* ========================================
+ * BUTTON STYLING
+ * ========================================
+ * Call-to-Action Buttons mit rotem Panda Farben
+ */
+
+/* Button Container: Flexbox zentriert */
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+/* Primary Button: Rotes Panda-Rot mit Orangeton-Gradient */
+.hero-actions .btn-primary {
+    background: linear-gradient(135deg, #d9534f, #f4a261);
+}
+
+/* Secondary Button: Transparent weiß */
+.hero-actions .btn-secondary {
+    background: rgba(255, 255, 255, 0.18);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Secondary Button Hover: Etwas opaker */
+.hero-actions .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.28);
+}
+
+/* ========================================
+ * CONTENT SECTIONS - HOMEPAGE
+ * ========================================
+ * Unterschiedliche Layout-Grids für Inhaltsseiten
+ */
+
+/* Allgemeiner Section Container: Zentriert mit max. Breite */
+.section {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+/* ========================================
+ * TWO-COLUMN SECTION
+ * ========================================
+ * Text neben Bildkarte mit Wärmeton
+ */
+
+/* Two-Column Layout: Text links, Bild rechts */
+.section-two-col {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 24px;
+    align-items: center;
+    background: linear-gradient(135deg, #fff6f0, #f4ece5);
+    border-radius: 32px;
+    padding: 32px;
+}
+
+/* Text Block Überschrift: Dunkles Rot-Orange */
+.text-block h2 {
+    margin-top: 0;
+    color: #8c2e24;
+    font-size: 2.4rem;
+}
+
+/* Text Block Paragraph: Dunkles, warmes Braun */
+.text-block p {
+    color: #4a412f;
+    max-width: 520px;
+}
+
+/* Bild-Overlay Karte: Dunkel mit Bildhintergrund */
+.image-overlay-card {
+    min-height: 320px;
+    border-radius: 22px;
+    background: linear-gradient(0deg, rgba(255, 216, 189, 0.44), rgba(255, 238, 230, 0.26)),
+        url("../img/alexas_fotos-little-panda-3161290_1920.jpg") center/cover no-repeat;
+    display: grid;
+    place-items: center;
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Bild-Overlay Dark Gradient: Dunkel unten */
+.image-overlay-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(13, 38, 22, 0.45), rgba(13, 38, 22, 0.15));
+}
+
+/* Overlay Text: Weiß und lesbar */
+.overlay-copy {
+    position: relative;
+    z-index: 1;
+    color: #ffffff;
+    text-align: center;
+}
+
+/* Overlay Überschrift */
+.overlay-copy h3 {
+    margin: 0 0 12px;
+}
+
+/* Overlay Paragraph */
+.overlay-copy p {
+    margin: 0;
+    line-height: 1.7;
+}
+
+/* ========================================
+ * THREE-COLUMN SECTION
+ * ========================================
+ * Feature Cards für Kategorien-Info (z.B. Lebensraum, Ernährung)
+ */
+
+/* Three-Column Grid: Feature Cards */
+.section-three-col {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 24px;
+}
+
+/* Feature Card: Weiß mit Schatten */
+.feature {
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.05);
+    padding: 28px;
+}
+
+/* Large Feature: Nimmt 1 Spalte */
+.feature-large {
+    grid-column: span 1;
+}
+
+/* Small Feature: Wird von oben alignt */
+.feature-small {
+    display: grid;
+    align-content: start;
+}
+
+/* Feature Überschrift: Waldgrün */
+.feature h3 {
+    margin-top: 0;
+    color: #1c3a29;
+}
+
+/* Feature Text: Lesbar */
+.feature p {
+    color: #4a4a42;
+    line-height: 1.75;
+}
+
+/* ========================================
+ * FOUR-COLUMN SECTION (MINI CARDS)
+ * ========================================
+ * Kleine charakteristische Attribute des roten Pandas
+ */
+
+/* Four-Column Grid: Mini-Karten */
+.section-four-col {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+
+/* Mini Card: Attribute des roten Pandas */
+.mini-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.06);
+    text-align: center;
+    font-weight: 700;
+    color: #1e3a2d;
+}
+
+/* ========================================
+ * INTERACTIVE SECTION - PROJECT INFO
+ * ========================================
+ * Content-Karte für Projektbeschreibung
+ */
+
+/* Interactive Section: Warmes Gradient-Hintergrund */
+.section-interactive {
+    padding-top: 40px;
+    background: linear-gradient(180deg, #fff7f4, #f7eff8);
+    border-radius: 32px;
+    margin-top: 30px;
+}
+
+/* Interactive Grid: Zentriertes Layout */
+.interactive-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 24px;
+}
+
+/* Content Card: Weiß mit Schatten */
+.content-card {
+    background: linear-gradient(135deg, #fff4ee, #f4f2ff);
+    border-radius: 18px;
+    padding: 28px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(196, 74, 49, 0.14);
+}
+
+/* Content Card Titel: Dunkles Rot-Braun */
+.content-card h3 {
+    margin-top: 0;
+    color: #8b2d25;
+}
+
+/* Project Card: Spezieller Gradient für das Projekt */
+.project-card {
+    background: linear-gradient(135deg, #fff5f1, #fef0ff);
+}
+
+/* Project Note: Kleine Beschreibung unter dem Projekttext */
+.project-note {
+    margin-top: 14px;
+    font-size: 0.95rem;
+    color: #a54d42;
+    font-weight: 700;
+}
+
+/* ========================================
+ * ACCORDION / DETAILS STYLING
+ * ========================================
+ * Klappbare Frage-Antwort Elemente
+ */
+
+/* Accordion: Weiß mit Schatten */
+.accordion {
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.06);
+    padding: 22px;
+}
+
+/* Accordion Summary (Frage): Clickable */
+.accordion summary {
+    cursor: pointer;
+    list-style: none;
+    font-weight: 700;
+    outline: none;
+}
+
+/* Accordion Marker entfernen (custom styling) */
+.accordion summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Accordion Antwort-Text */
+.accordion p {
+    margin: 16px 0 0;
+    color: #4a4a42;
+    line-height: 1.75;
+}
+
+/* ========================================
+ * MODAL DIALOG STYLING
+ * ========================================
+ * CSS-only Modal mit Checkbox-Toggle
+ */
+
+/* Modal Toggle: Versteckte Checkbox für Zustand */
+.modal-toggle {
+    display: none;
+}
+
+/* Modal Overlay: Halbtransparent dunkel */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+    background: rgba(15, 30, 18, 0.55);
+    padding: 20px;
+    z-index: 99;
+}
+
+/* Modal sichtbar wenn Checkbox checked */
+.modal-toggle:checked ~ .modal-overlay {
+    display: flex;
+}
+
+/* Modal Backdrop: Clickable Fläche zum Schließen */
+.modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: transparent;
+}
+
+/* Modal Card: Weiße Karte mit Schatten */
+.modal-card {
+    position: relative;
+    background: #ffffff;
+    border-radius: 22px;
+    padding: 28px;
+    max-width: 520px;
+    width: 100%;
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.18);
+    z-index: 1;
+}
+
+/* Modal Close Button: X oben rechts */
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
+    font-size: 1.4rem;
+    color: #4a4a42;
+}
+
+/* ========================================
+ * BUTTON STYLING
+ * ========================================
+ * Universelle Button-Stile mit Hover-Effekt
+ */
+
+/* Button: Basis-Styling */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    padding: 12px 28px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+/* Primary Button: Waldgrün (#2f5f45) */
+.btn-primary {
+    background: #2f5f45;
+    color: #ffffff;
+}
+
+/* Secondary Button: Transparent mit weißem Rahmen */
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.16);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+/* Button Hover: Sanfte Hebung */
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+/* ========================================
+ * RESPONSIVE DESIGN
+ * ========================================
+ * Anpassungen für Tablets und Mobile Geräte
+ */
+
+/* Tablet (max-width: 980px): 1-spaltig statt multi-col */
+@media (max-width: 980px) {
+    .section-two-col,
+    .interactive-grid,
+    .section-three-col {
+        grid-template-columns: 1fr;
+    }
+    .section-four-col {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Mobile (max-width: 680px): Kleinere Schriftgrößen und Abstände */
+@media (max-width: 680px) {
+    .home-hero {
+        padding: 60px 18px;
+    }
+    .hero-copy h1 {
+        font-size: 2.8rem;
+    }
+    .hero-actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .section {
+        padding: 40px 18px;
+    }
+}
+
+/* ========================================
+ * FACTS PAGE STYLING
+ * ========================================
+ * Spezielle Stile für die Facts-Seite
+ */
+
+/* ========================================
+ * FACTS PAGE STYLING
+ * ========================================
+ * Spezielle Stile für die Facts-Seite
+ */
+
+/* Facts Hero: Wald-Grün Overlay mit Bild */
+.facts-hero {
+    background: linear-gradient(180deg, rgba(47, 95, 69, 0.85) 0%, rgba(63, 122, 94, 0.85) 100%),
+        url("../img/alexas_fotos-little-panda-3161290_1920.jpg") center/cover no-repeat;
+    color: #ffffff;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+/* Facts Hero Container: Zentriert */
+.facts-hero-inner {
+    max-width: 920px;
+    margin: 0 auto;
+}
+
+/* Facts Hero Eyebrow */
+.facts-hero .eyebrow {
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    opacity: 0.85;
+    margin-bottom: 16px;
+}
+
+/* Facts Hero Überschrift: Groß und eindrüclich */
+.facts-hero h2 {
+    font-size: 2.8rem;
+    line-height: 1.1;
+    margin: 0 0 18px;
+}
+
+/* Facts Hero Text: Lesbar und hell */
+.facts-hero .hero-text {
+    max-width: 720px;
+    margin: 0 auto 24px;
+    line-height: 1.7;
+    color: #e8f3e7;
+}
+
+/* ========================================
+ * FACTS INTRO SECTION
+ * ========================================
+ * Zwei Spalten mit Info-Karten
+ */
+
+/* Facts Intro Grid: 2 Spalten */
+.facts-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    max-width: 1100px;
+    margin: 40px auto 30px;
+    padding: 0 20px;
+}
+
+/* Intro Card: Weiß mit Schatten */
+.intro-card {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+    padding: 26px;
+}
+
+/* Intro Card Titel: Waldgrün */
+.intro-card-large h3,
+.intro-card-small h3 {
+    color: #2f5f45;
+    margin-bottom: 16px;
+}
+
+/* Intro Card Text und Liste: Lesbar */
+.intro-card p,
+.intro-card ul {
+    color: #4a4a42;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Intro Card Liste: Mit Bullet-Punkte */
+.intro-card ul {
+    padding-left: 18px;
+    margin-top: 12px;
+}
+
+.intro-card ul li {
+    margin-bottom: 10px;
+}
+
+/* ========================================
+ * FACTS CARDS HIGHLIGHTS
+ * ========================================
+ * Grid von Fakten-Highlight-Karten mit Bildern
+ */
+
+/* Facts Cards Grid: Responsiv */
+.facts-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto 40px;
+    padding: 0 20px;
+}
+
+/* Facts Card: Weiß mit Hover-Effekt */
+.facts-card {
+    background: #ffffff;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.07);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Facts Card Hover: Hebt sich an */
+.facts-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 34px rgba(0, 0, 0, 0.1);
+}
+
+/* Facts Card Bild */
+.facts-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Facts Card Inhaltsbereich */
+.facts-card-content {
+    padding: 22px;
+}
+
+/* Facts Card Titel: Waldgrün */
+.facts-card-content h4 {
+    margin: 0 0 14px;
+    color: #2f5f45;
+}
+
+/* Facts Card Text */
+.facts-card-content p {
+    margin: 0;
+    color: #4a4a42;
+    line-height: 1.7;
+}
+
+/* ========================================
+ * FACTS CALLOUT SECTION
+ * ========================================
+ * Grüner Call-to-Action Bereich am Ende
+ */
+
+/* Callout Banner: Helles Waldgrün */
+.facts-callout {
+    background: #eef5ea;
+    padding: 48px 20px;
+}
+
+/* Callout Container: Zentriert */
+.callout-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Callout Überschrift: Waldgrün */
+.callout-inner h3 {
+    font-size: 2rem;
+    color: #2f5f45;
+    margin-bottom: 16px;
+}
+
+/* Callout Text */
+.callout-inner p {
+    max-width: 700px;
+    margin: 0 auto 24px;
+    color: #4a4a42;
+    line-height: 1.7;
+}
+
+/* ========================================
+ * FOOTER STYLING
+ * ========================================
+ * Website-Footer mit Navigations-Links
+ */
+
+/* Site Footer: Dunkler waldiger Hintergrund */
+.site-footer {
+    background: #1f3f2b;
+    color: #eef1ea;
+    padding: 28px 20px 24px;
+    margin-top: 40px;
+}
+
+/* Footer Top: Markenname und Tagline */
+.footer-top {
+    max-width: 1100px;
+    margin: 0 auto 18px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+/* Footer Brand-Name: Versal und fett */
+.footer-brand {
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 0 0 6px;
+}
+
+/* Footer Tagline: Sanfte grüne Farbe */
+.footer-tagline {
+    margin: 0;
+    color: #d3e1d3;
+    opacity: 0.95;
+}
+
+/* Footer Navigation Zeile: Links mit Trennzeichen */
+.footer-nav-line {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 16px 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    align-items: center;
+    font-size: 0.95rem;
+}
+
+/* Footer Links: Sanfte Farbe mit Hover */
+.footer-nav-line a {
+    color: #d8e1d7;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+/* Footer Links Hover: Weiß */
+.footer-nav-line a:hover {
+    color: #ffffff;
+}
+
+/* Footer Trennzeichen: Sehr zart */
+.footer-nav-line span {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* Footer Copyright: Kleiner Text zentriert */
+.footer-copy {
+    max-width: 1100px;
+    margin: 16px auto 0;
+    text-align: center;
+    color: #b6c4b6;
+    font-size: 0.88rem;
+}
+
+/* Responsive Footer: Zentriert auf kleinen Bildschirmen */
+@media (max-width: 720px) {
+    .footer-top {
+        justify-content: center;
+        text-align: center;
+    }
+    .footer-nav-line {
+        justify-content: center;
+    }
+}
+
+/* ========================================
+ * MEDIA SECTION STYLING
+ * ========================================
+ * Audio/Video Player Container
+ */
+
+/* Media Section: Weiße Box mit Schatten */
+.media-section {
+    max-width: 900px;
+    margin: 20px auto 30px;
+    padding: 18px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Media Section Titel: Rotes Panda-Orange */
+.media-section h2 {
+    margin-top: 0;
+    color: #c85028;
+    font-size: 1.5rem;
+}
+
+/* Media Section Text */
+.media-section p {
+    color: #555555;
+    margin-top: 12px;
+    font-size: 0.95rem;
+}
+
+/* Media Player (Audio/Video): Responsiv */
+.media-player {
+    width: 100%;
+    max-width: 700px;
+    display: block;
+    margin-top: 12px;
+}
+
+/* ========================================
+ * ========================================
+ * STYLESHEET SUMMARY
+ * ========================================
+ * ========================================
+ * 
+ * ROTER PANDA THEMENSEITE - CSS DOKUMENTATION
+ * 
+ * Farb-Palette:
+ * • Primär (Rotes Fell): #d9534f, #c85028
+ * • Sekundär (Waldgrün): #2f5f45, #1d3b29, #1f3f2b
+ * • Akzent (Wärmeton): #f4a261
+ * • Hintergrund: #f5f6f5, #ffffff, #fdfbf7
+ * • Text: #333333, #4a4a42
+ * 
+ * Struktur:
+ * 1. Globale Stile & Farbpalette
+ * 2. Steckbrief-Seite
+ * 3. Galerie-Seite
+ * 4. Navigation & Media
+ * 5. Homepage (Hero, Video, Inhaltsblöcke, FAQ, Accordion)
+ * 6. Buttons & Modal
+ * 7. Responsive Design
+ * 8. Facts-Seite
+ * 9. Footer & Media-Elemente
+ * 
+ * Einheit: Alle Farben sind konsistent, passend zum Thema
+ * Roter Panda und seinem natürlichen Lebensraum.
+ * 
+ * ========================================
+ */
+
