@@ -11,11 +11,15 @@
 <body>
 
     <header class="w3-container site-header">
-        <h1 class="w3-xxxlarge">Abschlussarbeit M287</h1>
+        <!-- Header-Inhalt in eine flexbox-container gelegt -->
+        <div class="site-header-inner">
+            <h1 class="w3-xxxlarge">Abschlussarbeit M287</h1>
+            <!-- Rundes M287-Logo oben rechts, als Home-Link -->
+            <a href="../index.html" class="site-header-logo" aria-label="Home" title="Home"></a>
+        </div>
     </header>
 
     <nav class="w3-bar w3-border w3-light-grey w3-large">
-        <a href="../index.html" class="w3-bar-item w3-button w3-border-right">Home</a>
         <a href="facts.html" class="w3-bar-item w3-button w3-border-right w3-green">Facts</a>
         <a href="Steckbrief.html" class="w3-bar-item w3-button w3-border-right">Steckbrief</a>
         <a href="gallerie.html" class="w3-bar-item w3-button w3-border-right">Gallerie</a>
