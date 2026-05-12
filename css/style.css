@@ -23,11 +23,11 @@
     --color-bg: #F5E9DC;
     --color-surface: #ffffff;
     --color-text: #3A241F;
-    --color-heading: #1d3b29;
-    --color-primary: #2f5f45;
+    --color-heading: #C84A2F;
+    --color-primary: #C84A2F;
     --color-primary-light: #5fa57f;
     --color-accent: #c85028;
-    --color-border: rgba(47, 95, 69, 0.16);
+    --color-border: #C84A2F;
     --shadow: 0 12px 30px rgba(45, 75, 56, 0.12);
 }
 
