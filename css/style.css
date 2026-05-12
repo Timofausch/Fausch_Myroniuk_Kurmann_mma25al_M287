@@ -18,11 +18,11 @@
 
 :root {
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    color: #2a2a24;
-    background-color: #eff5ee;
-    --color-bg: #eff5ee;
+    color: #3A241F;
+    background-color: #F5E9DC;
+    --color-bg: #F5E9DC;
     --color-surface: #ffffff;
-    --color-text: #2a2a24;
+    --color-text: #3A241F;
     --color-heading: #1d3b29;
     --color-primary: #2f5f45;
     --color-primary-light: #5fa57f;
