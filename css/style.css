@@ -78,7 +78,9 @@ header, footer, nav {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.12), transparent 38%);
+    background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.20)),
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.12), transparent 38%);
     pointer-events: none;
 }
 
@@ -182,31 +184,31 @@ nav.w3-bar a.w3-bar-item.w3-button.active {
 }
 
 .btn-primary {
-    background: var(--color-primary);
-    color: #ffffff;
-    box-shadow: 0 8px 22px rgba(47, 95, 69, 0.18);
+    background: #C84A2F;
+    color: #F5E9DC;
+    box-shadow: 0 8px 22px #4A2C24;
 }
 
 .btn-primary:hover {
-    background: #25563b;
+    background: #4A2C24;
 }
 
 .btn-secondary {
-    background: rgba(47, 95, 69, 0.08);
+    background: #C84A2F;
     color: var(--color-primary);
 }
 
 /* Galerie-Button exakt wie Header/Footer-Grün */
 .gallery-button,
 .hero-actions .btn-primary {
-    background: var(--color-primary);
-    color: #ffffff;
-    box-shadow: 0 10px 24px rgba(47, 95, 69, 0.2);
+    background:#C84A2F;
+    color: #F5E9DC;
+    box-shadow: 0 10px 24px #4A2C24;
 }
 
 .hero-actions .btn-primary:hover,
 .gallery-button:hover {
-    background: #25563b;
+    background: #4A2C24
 }
 
 /* ========================================
@@ -220,7 +222,7 @@ nav.w3-bar a.w3-bar-item.w3-button.active {
     display: grid;
     align-items: center;
     padding: 56px 20px;
-    background: linear-gradient(180deg, rgba(25, 45, 31, 0.64) 0%, rgba(40, 71, 52, 0.64) 40%, rgba(47, 95, 69, 0.64) 100%), url('../img/wildfaces-little-panda-7504633_1920.jpg') center/cover no-repeat;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.50)), url('../img/wildfaces-little-panda-7504633_1920.jpg') center/cover no-repeat;
     color: #222924;
     position: relative;
     background-size: cover;
@@ -235,7 +237,7 @@ nav.w3-bar a.w3-bar-item.w3-button.active {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(47,95,69,0.18));
+    background: rgba(0, 0, 0, 0.20);
     pointer-events: none;
 }
 
@@ -818,21 +820,22 @@ nav.w3-bar a.w3-bar-item.w3-button:hover {
     gap: 14px;
 }
 
-/* Primary Button: Rotes Panda-Rot mit Orangeton-Gradient */
+/* Primary Button für hero-actions: einheitliches #C84A2F */
 .hero-actions .btn-primary {
-    background: linear-gradient(135deg, #d9534f, #f4a261);
-}
-
-/* Secondary Button: Transparent weiß */
-.hero-actions .btn-secondary {
-    background: rgba(255, 255, 255, 0.18);
+    background: #C84A2F;
     color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* Secondary Button Hover: Etwas opaker */
+/* Secondary Button für hero-actions: auch #C84A2F */
+.hero-actions .btn-secondary {
+    background: #C84A2F;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Secondary Button Hover: dunklerer Ton */
 .hero-actions .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.28);
+    background: #a73922;
 }
 
 /* ========================================
@@ -1145,15 +1148,15 @@ nav.w3-bar a.w3-bar-item.w3-button:hover {
     transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-/* Primary Button: Waldgrün (#2f5f45) */
+/* Primary Button: einheitliches #C84A2F */
 .btn-primary {
-    background: #2f5f45;
+    background: #C84A2F;
     color: #ffffff;
 }
 
-/* Secondary Button: Transparent mit weißem Rahmen */
+/* Secondary Button: ebenfalls #C84A2F */
 .btn-secondary {
-    background: rgba(255, 255, 255, 0.16);
+    background: #C84A2F;
     color: #ffffff;
     border: 1px solid rgba(255, 255, 255, 0.22);
 }
