@@ -1,5 +1,39 @@
 ﻿/**
  * ========================================
+ * ABSCHLUSSARBEIT M287 - STYLESHEET
+ * ========================================
+ * Responsive Website für Roter Panda Projekt
+ * 
+ * DESIGN-RICHTLINIEN (gemäß Anforderungen):
+ * ✓ Desktop: Volle Spalten-Layouts (2, 3, 4 Spalten)
+ * ✓ Tablet (768px-960px): Angepasste Spalten (meist 2 oder weniger)
+ * ✓ Smartphone (<768px): Single-Column Layout
+ * ✓ Navigation: W3.CSS Framework
+ * ✓ Alle Elemente mit aussagekräftigen Kommentaren
+ * 
+ * FARB-PALETTE:
+ * - Waldgrün: #1d3b29, #2f5f45
+ * - Akzent-Grün: #5fa57f, #7ebf99
+ * - Roter Panda Rot: #c85028, #d9534f
+ * - Braun-Orange: #8c2e24, #a23a2d
+ * - Neutral Hell: #f5f6f5, #ffffff
+ * - Text Dunkel: #2a2a24, #3f443d
+ * 
+ * STRUKTUR:
+ * 1. Farb-Palette & CSS Variablen
+ * 2. Globale Stile & Basis-Layout
+ * 3. Header & Navigation
+ * 4. Buttons & Call-to-Action
+ * 5. Hero Sektion & Titelsektionen
+ * 6. Content Sections (2-Spalten, 3-Spalten, 4-Spalten)
+ * 7. Spezifische Seiten (Facts, Steckbrief, Galerie)
+ * 8. Footer
+ * 9. Responsive Design (Tablet & Smartphone)
+ * 10. Extra Features (FAQ, Modal, Accordion)
+ */
+
+/**
+ * ========================================
  * FARB-PALETTE - Grüner Natur-Akzent
  * ========================================
  * Primärfarbe (Waldgrün): #2f5f45, #1d3b29
@@ -14,27 +48,41 @@
  * ========================================
  * Basis-Styling für alle Seiten,
  * inklusive globaler Farben, Typografie und Layout.
+ * Verwendet CSS Custom Properties (:root) für einfache Wartung.
  */
 
 :root {
+    /* Font-Familie: Standard sans-serif für beste Lesbarkeit */
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     color: #3A241F;
     background-color: #F5E9DC;
-    --color-bg: #F5E9DC;
-    --color-surface: #ffffff;
-    --color-text: #3A241F;
-    --color-heading: #C84A2F;
-    --color-primary: #C84A2F;
-    --color-primary-light: #5fa57f;
-    --color-accent: #c85028;
-    --color-border: #C84A2F;
-    --shadow: 0 12px 30px rgba(45, 75, 56, 0.12);
+    
+    /* CSS Custom Properties (Variablen) für einfache Verwaltung aller Farben */
+    --color-bg: #F5E9DC;                    /* Haupthintergrund-Farbe */
+    --color-surface: #ffffff;                /* Oberflächen-Farbe (Cards, Panels) */
+    --color-text: #3A241F;                   /* Haupt-Textfarbe */
+    --color-heading: #C84A2F;                /* Überschriften-Farbe (Rotes Panda Rot) */
+    --color-primary: #C84A2F;                /* Primär-Farbe (Buttons, Akzente) */
+    --color-primary-light: #5fa57f;          /* Helle Primär-Farbe (Hover-Effekte) */
+    --color-accent: #c85028;                 /* Akzent-Farbe (Highlights) */
+    --color-border: #C84A2F;                 /* Rahmen-Farbe */
+    --shadow: 0 12px 30px rgba(45, 75, 56, 0.12); /* Standard Box-Shadow */
 }
 
+/* ========================================
+ * UNIVERSELLES BOX-SIZING
+ * ========================================
+ * Stellt sicher, dass Padding und Border in die Breite/Höhe einberechnet werden
+ */
 * {
     box-sizing: border-box;
 }
 
+/* ========================================
+ * BODY STYLING
+ * ========================================
+ * Grundlayout für die gesamte Seite mit Gradient-Hintergrund
+ */
 body {
     margin: 0;
     min-height: 100vh;
@@ -43,15 +91,30 @@ body {
     line-height: 1.65;
 }
 
+/* ========================================
+ * LINK STYLING
+ * ========================================
+ * Entfernt Standard-Unterstrich und erbt Textfarbe vom Parent
+ */
 a {
     color: inherit;
     text-decoration: none;
 }
 
+/* ========================================
+ * MEDIA STYLING (RESPONSIVE)
+ * ========================================
+ * Bilder, Videos und Audio-Dateien passen sich an Containergröße an
+ */
 img, video, audio {
     max-width: 100%;
 }
 
+/* ========================================
+ * BLOCK ELEMENTS STANDARDGRÖSSE
+ * ========================================
+ * Einheitliche Schriftgröße für semantische Elemente
+ */
 header, footer, nav {
     font-size: 1rem;
 }
@@ -59,8 +122,8 @@ header, footer, nav {
 /* ========================================
  * HEADER / TITELBILD-EFFEKT
  * ========================================
- * Einheitliches Banner für alle Seiten,
- * leichtes Grünstich-Overlay plus Schatten.
+ * Einheitliches Banner für alle Seiten
+ * Waldgrün Gradient mit subtile Lichtstrahlen-Effekte
  */
 
 .site-header {
@@ -71,6 +134,11 @@ header, footer, nav {
     overflow: hidden;
 }
 
+/* ========================================
+ * HEADER GLANZ-EFFEKT (Overlay)
+ * ========================================
+ * Subtile Lichtstrahlen oben links für Tiefe
+ */
 .site-header::after {
     content: "";
     position: absolute;
@@ -82,6 +150,11 @@ header, footer, nav {
     pointer-events: none;
 }
 
+/* ========================================
+ * HEADER ÜBERSCHRIFT
+ * ========================================
+ * Responsive Schriftgröße mit clamp() für fluide Skalierung
+ */
 header h1 {
     margin: 0;
     font-size: clamp(2rem, 3vw, 3rem);
@@ -93,28 +166,44 @@ header h1 {
 /* ========================================
  * NAVIGATION
  * ========================================
- * Grüne Navigation mit aktivem Highlight
+ * W3.CSS Framework Navigation mit grünem Design
+ * Responsive Hamburger-Menü durch W3.CSS Mobile-Support
  */
 
 nav.w3-bar {
     border: none;
-    background: #f2f8f2;
+    background: #f2f8f2;                     /* Sehr helles Grün-Weiß */
     padding: 0 20px;
 }
 
+/* ========================================
+ * NAVIGATION LINKS (Bar Items)
+ * ========================================
+ * Individuelle Buttons mit Hover und aktiven Zuständen
+ */
 nav.w3-bar a.w3-bar-item.w3-button {
-    color: #1d3b29;
+    color: #1d3b29;                          /* Waldgrün Text */
     background: transparent;
     border-radius: 8px;
     margin: 6px 4px;
     transition: background-color 0.25s ease, color 0.25s ease;
 }
 
+/* ========================================
+ * NAVIGATION HOVER-EFFEKT
+ * ========================================
+ * Leichter grüner Hintergrund beim Hover
+ */
 nav.w3-bar a.w3-bar-item.w3-button:hover {
-    background: rgba(95, 165, 127, 0.16);
-    color: #14301f;
+    background: rgba(95, 165, 127, 0.16);   /* Transparent Grün */
+    color: #14301f;                          /* Dunkeleres Grün */
 }
 
+/* ========================================
+ * NAVIGATION AKTIV-STATE
+ * ========================================
+ * Aktuelle Seite wird mit voller Farbe hervorgehoben
+ */
 nav.w3-bar a.w3-bar-item.w3-button.w3-green,
 nav.w3-bar a.w3-bar-item.w3-button.active {
     background: var(--color-primary);
@@ -125,6 +214,7 @@ nav.w3-bar a.w3-bar-item.w3-button.active {
  * BUTTONS
  * ========================================
  * Einheitliches Aussehen für alle Call-to-Action-Links
+ * Verwendet Flexbox für zentrale Ausrichtung und Konsistenz
  */
 
 .btn {
@@ -132,16 +222,26 @@ nav.w3-bar a.w3-bar-item.w3-button.active {
     align-items: center;
     justify-content: center;
     padding: 0.95rem 1.5rem;
-    border-radius: 999px;
+    border-radius: 999px;          /* Pillen-förmige Buttons */
     border: 1px solid transparent;
     font-weight: 600;
     transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* ========================================
+ * BUTTON HOVER-EFFEKT
+ * ========================================
+ * Leichte Erhebung beim Hover für visuelles Feedback
+ */
 .btn:hover {
     transform: translateY(-1px);
 }
 
+/* ========================================
+ * PRIMARY BUTTON (Primär-Aktion)
+ * ========================================
+ * Rotes Panda Design mit Waldgrün-Hintergrund
+ */
 .btn-primary {
     background: var(--color-primary);
     color: #ffffff;
@@ -174,6 +274,7 @@ nav.w3-bar a.w3-bar-item.w3-button.active {
  * HERO / TITELSEKTIONEN
  * ========================================
  * Einheitlicher Hero-Stil für Startseite, Facts und Steckbrief
+ * Full-Width Background mit Gradient-Overlay
  */
 
 .page-hero {
@@ -181,7 +282,8 @@ nav.w3-bar a.w3-bar-item.w3-button.active {
     display: grid;
     align-items: center;
     padding: 56px 20px;
-    background: linear-gradient(180deg, rgba(25, 45, 31, 0.64) 0%, rgba(40, 71, 52, 0.64) 40%, rgba(47, 95, 69, 0.64) 100%), url('../img/wildfaces-little-panda-7504633_1920.jpg') center/cover no-repeat;
+    background: linear-gradient(180deg, rgba(25, 45, 31, 0.64) 0%, rgba(40, 71, 52, 0.64) 40%, rgba(47, 95, 69, 0.64) 100%), 
+                url('../img/wildfaces-little-panda-7504633_1920.jpg') center/cover no-repeat;
     color: #222924;
     position: relative;
     background-size: cover;
@@ -192,6 +294,11 @@ nav.w3-bar a.w3-bar-item.w3-button.active {
     margin-right: -50vw;
 }
 
+/* ========================================
+ * HERO GLANZ-OVERLAY
+ * ========================================
+ * Subtile Lichtstrahlen für Tiefe und Eleganz
+ */
 .page-hero::after {
     content: "";
     position: absolute;
@@ -200,6 +307,11 @@ nav.w3-bar a.w3-bar-item.w3-button.active {
     pointer-events: none;
 }
 
+/* ========================================
+ * HERO INNER CONTAINER
+ * ========================================
+ * Weiße Karte mit Glasmorphismus-Effekt (Backdrop-Filter)
+ */
 .page-hero .hero-inner {
     position: relative;
     z-index: 1;
@@ -210,9 +322,14 @@ nav.w3-bar a.w3-bar-item.w3-button.active {
     border-radius: 24px;
     padding: 38px 36px;
     box-shadow: 0 28px 70px rgba(19, 40, 30, 0.18);
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);              /* Glasmorphismus-Effekt */
 }
 
+/* ========================================
+ * EYEBROW TEXT (Überschrift-Label)
+ * ========================================
+ * Kleine Uppercase Beschriftung über der Hauptüberschrift
+ */
 .eyebrow {
     text-transform: uppercase;
     letter-spacing: 0.32em;
@@ -221,6 +338,11 @@ nav.w3-bar a.w3-bar-item.w3-button.active {
     color: var(--color-primary);
 }
 
+/* ========================================
+ * HERO ÜBERSCHRIFTEN
+ * ========================================
+ * H1/H2 mit großer Schrift und starkem Kontrast
+ */
 .page-hero h1,
 .page-hero h2 {
     font-size: clamp(2.4rem, 4vw, 4rem);
@@ -230,6 +352,11 @@ nav.w3-bar a.w3-bar-item.w3-button.active {
     color: var(--color-heading);
 }
 
+/* ========================================
+ * HERO BESCHREIBUNGSTEXT
+ * ========================================
+ * Größerer Text für bessere Lesbarkeit
+ */
 .hero-text {
     max-width: 780px;
     margin-bottom: 1.8rem;
@@ -278,6 +405,30 @@ nav.w3-bar a.w3-bar-item.w3-button.active {
     display: grid;
     grid-template-columns: 1fr 1.2fr 1fr;
     gap: 26px;
+}
+
+/* RESPONSIVE: Tablet (768px - 960px) - 2 Spalten Layout */
+@media (max-width: 960px) and (min-width: 768px) {
+    .resume-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+    
+    .resume-center {
+        grid-column: span 2;
+    }
+}
+
+/* RESPONSIVE: Smartphone (<768px) - 1 Spalte Layout */
+@media (max-width: 767px) {
+    .resume-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .resume-center {
+        grid-column: span 1;
+    }
 }
 
 .resume-column {
@@ -417,7 +568,7 @@ nav.w3-bar a.w3-bar-item.w3-button.active {
 /* ========================================
  * FACTS SEITE
  * ========================================
- * Karte und Textaufteilung
+ * Karte und Textaufteilung mit responsivem Design
  */
 
 .facts-page {
@@ -426,11 +577,29 @@ nav.w3-bar a.w3-bar-item.w3-button.active {
     padding: 30px 20px 40px;
 }
 
+/* Facts Introduction: Text + Bild Layout */
 .facts-intro {
     display: grid;
     grid-template-columns: 1.4fr 0.8fr;
     gap: 22px;
     margin: 32px auto 28px;
+}
+
+/* RESPONSIVE: Tablet (768px - 960px) - angepasster Ratio */
+@media (max-width: 960px) and (min-width: 768px) {
+    .facts-intro {
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+    }
+}
+
+/* RESPONSIVE: Smartphone (<768px) - 1 Spalte Layout */
+@media (max-width: 767px) {
+    .facts-intro {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        margin: 20px auto;
+    }
 }
 
 .intro-card {
@@ -455,6 +624,23 @@ nav.w3-bar a.w3-bar-item.w3-button.active {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 24px;
     margin-bottom: 32px;
+}
+
+/* RESPONSIVE: Tablet (768px - 960px) - 2 Spalten Layout */
+@media (max-width: 960px) and (min-width: 768px) {
+    .facts-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+/* RESPONSIVE: Smartphone (<768px) - 1 Spalte Layout */
+@media (max-width: 767px) {
+    .facts-cards {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-bottom: 24px;
+    }
 }
 
 .facts-card {
@@ -523,6 +709,28 @@ nav.w3-bar a.w3-bar-item.w3-button.active {
     gap: 22px;
 }
 
+/* RESPONSIVE: Tablet (768px - 960px) - 2 Spalten beibehalten */
+@media (max-width: 960px) and (min-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+}
+
+/* RESPONSIVE: Smartphone (<768px) - 1 Spalte Layout */
+@media (max-width: 767px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+}
+
+/* ========================================
+ * GALLERY ITEM
+ * ========================================
+ * Einzelnes Bild in der Galerie mit Hover-Effekt
+ * Graustufen-Filter wird beim Hover entfernt
+ */
 .gallery-item {
     background: #ffffff;
     border-radius: 18px;
@@ -530,11 +738,22 @@ nav.w3-bar a.w3-bar-item.w3-button.active {
     box-shadow: 0 12px 28px rgba(47, 95, 69, 0.08);
 }
 
-/* Versteckte Galerie-Items: Nur auf Klick sichtbar machen */
+/* ========================================
+ * GALLERY ITEM VERBORGEN
+ * ========================================
+ * Zusätzliche Bilder sind standardmäßig versteckt
+ * Werden durch "Mehr laden" Button angezeigt
+ */
 .gallery-item.hidden {
     display: none;
 }
 
+/* ========================================
+ * GALLERY ITEM IMAGE
+ * ========================================
+ * Graustufen-Filter mit fließender Animation
+ * Beim Hover: Farbe wird aktiv + Zoom
+ */
 .gallery-item img {
     width: 100%;
     height: 100%;
@@ -544,16 +763,25 @@ nav.w3-bar a.w3-bar-item.w3-button.active {
     transition: filter 0.35s ease, transform 0.35s ease;
 }
 
+/* ========================================
+ * GALLERY ITEM HOVER-EFFEKT
+ * ========================================
+ * Hebt die Karte an und zeigt das farbige Bild
+ */
 .gallery-item:hover {
     transform: translateY(-4px);
 }
 
 .gallery-item:hover img {
-    filter: none;
-    transform: scale(1.02);
+    filter: none;                             /* Graustufen entfernen */
+    transform: scale(1.02);                  /* Leichtes Zoom */
 }
 
-/* Lade mehr Button Container: zentriert unter dem Bildraster */
+/* ========================================
+ * LOAD MORE BUTTON CONTAINER
+ * ========================================
+ * Zentrierter Container unter dem Bildraster
+ */
 .load-more-container {
     text-align: center;
     margin-top: 24px;
@@ -562,6 +790,7 @@ nav.w3-bar a.w3-bar-item.w3-button.active {
 /* ========================================
  * FOOTER
  * ========================================
+ * Grüner Footer mit Navigation und Copyright
  */
 
 .site-footer {
@@ -571,6 +800,11 @@ nav.w3-bar a.w3-bar-item.w3-button.active {
     border-top: 1px solid rgba(47, 95, 69, 0.12);
 }
 
+/* ========================================
+ * FOOTER TOP SECTION
+ * ========================================
+ * Brand/Logo Bereich oben
+ */
 .footer-top,
 .footer-nav-line,
 .footer-copy {
@@ -578,7 +812,11 @@ nav.w3-bar a.w3-bar-item.w3-button.active {
     margin: 0 auto;
 }
 
-/* Footer Navigation: Links in einer Zeile mit Abstand */
+/* ========================================
+ * FOOTER NAVIGATION LINE
+ * ========================================
+ * Links in einer Reihe mit Punkt-Separatoren
+ */
 .footer-nav-line {
     display: flex;
     flex-wrap: wrap;
@@ -592,41 +830,431 @@ nav.w3-bar a.w3-bar-item.w3-button.active {
     color: #3b4a3d;
 }
 
+/* ========================================
+ * FOOTER COPYRIGHT
+ * ========================================
+ * Kleine Schrift mit Copyright-Info
+ */
 .footer-copy {
     font-size: 0.92rem;
     color: #5b655a;
 }
 
 /* ========================================
- * RESPONSIVE ANPASSUNGEN
+ * RESPONSIVE ANPASSUNGEN - MOBILE FIRST
  * ========================================
+ * Breakpoints:
+ * - Desktop: >960px (Standard Layout)
+ * - Tablet: 768px - 960px (Angepasste Grid-Layouts)
+ * - Smartphone: <768px (Single-Column Layout)
  */
 
-@media (max-width: 960px) {
-    .facts-intro,
-    .steckbrief-grid,
-    .gallery-grid {
-        grid-template-columns: 1fr;
-    }
-}
+/* ========================================
+ * TABLET BREAKPOINT (768px - 960px)
+ * ========================================
+ * Angepasste Abstände und Schriftsizes für mittlere Bildschirme
+ */
 
-@media (max-width: 720px) {
+@media (max-width: 960px) and (min-width: 768px) {
+    /* Allgemeine Anpassungen für Tablet */
     .page-hero {
-        padding: 30px 16px;
+        padding: 40px 20px;
     }
 
     .hero-inner {
-        padding: 24px;
+        padding: 30px;
     }
 
-    .steckbrief-container {
-        margin: 0 16px 30px;
-        padding: 24px;
+    .section {
+        padding: 48px 20px;
+    }
+
+    .hero-inner h1,
+    .hero-inner h2 {
+        font-size: clamp(2.4rem, 3.5vw, 3.5rem);
+    }
+
+    .text-block h2 {
+        font-size: 2rem;
     }
 
     .steckbrief-title,
     .gallery-title {
         font-size: 1.75rem;
+    }
+
+    nav.w3-bar {
+        padding: 0 15px;
+    }
+
+    nav.w3-bar a.w3-bar-item.w3-button {
+        margin: 4px 2px;
+    }
+}
+
+/* ========================================
+ * SMARTPHONE BREAKPOINT (<768px)
+ * ========================================
+ * Single-Column Layouts, optimierte Abstände und Schriftsizes
+ */
+
+@media (max-width: 767px) {
+    /* Page Hero: Kleinere Höhe und Padding */
+    .page-hero {
+        min-height: 50vh;
+        padding: 30px 16px;
+    }
+
+    .hero-inner {
+        padding: 20px 18px;
+        border-radius: 18px;
+        max-width: 100%;
+    }
+
+    /* Hero Text: Kleinere Schriftsizes */
+    .hero-inner h1,
+    .hero-inner h2 {
+        font-size: clamp(1.8rem, 5vw, 2.8rem);
+        margin: 0 0 14px;
+    }
+
+    .eyebrow {
+        font-size: 0.8rem;
+        margin-bottom: 12px;
+    }
+
+    .hero-text {
+        font-size: 0.95rem;
+        margin-bottom: 1.2rem;
+    }
+
+    /* Hero Actions: Buttons vertikal stapeln */
+    .hero-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 12px 20px;
+        font-size: 0.95rem;
+    }
+
+    /* Sections: Kleinere Padding */
+    .section {
+        padding: 36px 16px;
+    }
+
+    .text-block h2 {
+        font-size: 1.6rem;
+    }
+
+    .text-block p {
+        font-size: 0.95rem;
+    }
+
+    /* Steckbrief: Responsive Text und Padding */
+    .steckbrief-container {
+        margin: 0 12px 24px;
+        padding: 20px;
+    }
+
+    .steckbrief-title,
+    .gallery-title {
+        font-size: 1.5rem;
+        margin-bottom: 16px;
+    }
+
+    .profile-photo {
+        width: 160px;
+        height: 160px;
+        margin: 0 auto 18px;
+    }
+
+    .profile-name {
+        font-size: 1.6rem;
+        margin: 0 0 6px;
+    }
+
+    /* Facts Page: Responsive Cards */
+    .facts-page {
+        padding: 20px 16px 30px;
+    }
+
+    .facts-card img {
+        height: 180px;
+    }
+
+    .facts-card-content {
+        padding: 18px;
+    }
+
+    /* FAQ: Kleinere Padding und Schrift */
+    .section-faq {
+        padding: 24px 18px;
+        border-radius: 18px;
+    }
+
+    .section-faq h2 {
+        font-size: 1.5rem;
+        margin-bottom: 16px;
+    }
+
+    .section-faq details {
+        padding: 14px 16px;
+        margin-top: 12px;
+    }
+
+    .section-faq summary {
+        font-size: 0.95rem;
+    }
+
+    .section-faq p {
+        font-size: 0.9rem;
+        margin-top: 10px;
+    }
+
+    /* Video Section: Responsive Video */
+    .home-video {
+        padding: 30px 16px 0;
+    }
+
+    .home-video .media-section {
+        padding: 20px;
+        border-radius: 20px;
+    }
+
+    .home-video .media-section h2 {
+        font-size: 1.3rem;
+        margin-top: 0;
+    }
+
+    .home-video .media-player {
+        border-radius: 12px;
+        margin-top: 14px;
+    }
+
+    /* Footer: Responsive Layout */
+    .site-footer {
+        padding: 18px 16px 20px;
+    }
+
+    .footer-nav-line {
+        font-size: 0.85rem;
+        gap: 8px;
+    }
+
+    .footer-copy {
+        font-size: 0.8rem;
+    }
+
+    /* Gallery Container: Responsive Padding */
+    .gallery-container {
+        padding: 16px;
+        margin: 30px auto;
+    }
+
+    /* Intro Cards: Responsive Text */
+    .intro-card {
+        padding: 20px;
+        border-radius: 14px;
+    }
+
+    .intro-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+    }
+
+    .intro-card p {
+        font-size: 0.9rem;
+    }
+
+    /* Content Cards: Responsive Padding */
+    .content-card {
+        padding: 20px;
+        border-radius: 14px;
+    }
+
+    .content-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    .project-note {
+        font-size: 0.85rem;
+        margin-top: 10px;
+    }
+
+    /* Mini Cards: Responsive Padding und Schrift */
+    .mini-card {
+        padding: 16px;
+        border-radius: 12px;
+        font-size: 0.9rem;
+    }
+
+    /* Feature Cards: Responsive Padding */
+    .feature {
+        padding: 20px;
+        border-radius: 14px;
+    }
+
+    .feature h3 {
+        font-size: 1.05rem;
+        margin-bottom: 10px;
+    }
+
+    .feature p {
+        font-size: 0.9rem;
+    }
+
+    /* Header: Responsive Padding */
+    .site-header {
+        padding: 20px 16px;
+    }
+
+    header h1 {
+        font-size: clamp(1.5rem, 3vw, 2.2rem);
+    }
+
+    /* Navigation: Responsive Bar */
+    nav.w3-bar {
+        padding: 0 10px;
+        flex-wrap: wrap;
+    }
+
+    nav.w3-bar a.w3-bar-item.w3-button {
+        margin: 3px 2px;
+        padding: 8px 12px;
+        font-size: 0.85rem;
+        border-radius: 6px;
+    }
+
+    /* Modal: Responsive Größe */
+    .modal-card {
+        max-width: 90%;
+        padding: 20px;
+        border-radius: 16px;
+    }
+
+    .modal-close {
+        font-size: 1.2rem;
+        top: 12px;
+        right: 12px;
+    }
+
+    /* Accordion: Responsive Padding */
+    .accordion {
+        padding: 16px;
+        border-radius: 14px;
+    }
+
+    .accordion summary {
+        font-size: 0.95rem;
+    }
+
+    .accordion p {
+        font-size: 0.9rem;
+        margin-top: 12px;
+    }
+
+    /* Image Overlay Card: Responsive Höhe */
+    .image-overlay-card {
+        min-height: 240px;
+        padding: 20px;
+    }
+
+    .overlay-copy h3 {
+        font-size: 1.2rem;
+        margin: 0 0 10px;
+    }
+
+    .overlay-copy p {
+        font-size: 0.9rem;
+    }
+
+    /* Callout: Responsive Padding */
+    .facts-callout {
+        padding: 20px;
+        border-radius: 16px;
+    }
+
+    .callout-inner h2,
+    .callout-inner h3 {
+        font-size: 1.3rem;
+    }
+
+    .callout-inner p {
+        font-size: 0.95rem;
+    }
+}
+
+/* ========================================
+ * EXTRA SMALL DEVICES (<480px)
+ * ========================================
+ * Zusätzliche Anpassungen für sehr kleine Bildschirme
+ */
+
+@media (max-width: 479px) {
+    /* Header: Extra klein */
+    header h1 {
+        font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    }
+
+    .site-header {
+        padding: 16px 12px;
+    }
+
+    /* Hero Inner: Minimale Padding */
+    .hero-inner {
+        padding: 16px 14px;
+    }
+
+    .hero-inner h1,
+    .hero-inner h2 {
+        font-size: 1.6rem;
+    }
+
+    .hero-text {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Buttons: Kleinere Padding auf Extra-Small */
+    .btn {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+        border-radius: 6px;
+    }
+
+    /* Typography: Reduzierte Schriftsizes */
+    .text-block h2 {
+        font-size: 1.4rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+
+    /* Spacing: Reduzierte Abstände */
+    .section {
+        padding: 24px 12px;
+    }
+
+    /* Cards: Kleinere Padding */
+    .feature,
+    .intro-card,
+    .content-card {
+        padding: 14px;
+    }
+
+    /* Footer: Minimal Padding */
+    .footer-nav-line {
+        font-size: 0.75rem;
+        gap: 4px;
     }
 }
 
@@ -655,11 +1283,16 @@ nav.w3-bar a.w3-bar-item.w3-button:hover {
  * Warme orangerot-beige Box für Video
  */
 
+/* Home Video Container: Top-Padding */
 .home-video {
     padding: 40px 20px 0;
 }
 
-/* Video Media Section: Warmer Orangeton mit softem Glow */
+/* ========================================
+ * VIDEO MEDIA SECTION
+ * ========================================
+ * Warmer Orangeton mit softem Glow und Schatten
+ */
 .home-video .media-section {
     background: linear-gradient(135deg, #fff4ee, #ffefdf);
     border-radius: 28px;
@@ -668,13 +1301,21 @@ nav.w3-bar a.w3-bar-item.w3-button:hover {
     border: 1px solid rgba(217, 83, 79, 0.12);
 }
 
-/* Video-Titel: Rotes Panda-Braun */
+/* ========================================
+ * VIDEO TITEL
+ * ========================================
+ * Rotes Panda-Braun mit großer Schrift
+ */
 .home-video .media-section h2 {
     color: #a23a2d;
     margin-top: 0;
 }
 
-/* Video Player: Responsiv und gerundet */
+/* ========================================
+ * VIDEO PLAYER
+ * ========================================
+ * Responsive Video mit abgerundeten Ecken
+ */
 .home-video .media-player {
     width: 100%;
     max-width: 900px;
@@ -686,6 +1327,7 @@ nav.w3-bar a.w3-bar-item.w3-button:hover {
  * FAQ SECTION - HOMEPAGE
  * ========================================
  * Häufig gestellte Fragen mit rotem Panda Akzent
+ * Verwendet HTML <details> Element für Interaktivität
  */
 
 /* FAQ Container: Creme-weißer Hintergrund */
@@ -703,24 +1345,36 @@ nav.w3-bar a.w3-bar-item.w3-button:hover {
     color: #a23a2d;
 }
 
-/* FAQ Details: Weiß mit rotem Panda-Balken */
+/* ========================================
+ * FAQ DETAILS ELEMENT
+ * ========================================
+ * Einzelne Frage-Antwort-Paar mit roter Linie
+ */
 .section-faq details {
     background: #ffffff;
     border-radius: 16px;
     padding: 18px 22px;
     margin-top: 16px;
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
-    border-left: 5px solid #d9534f;
+    border-left: 5px solid #d9534f;           /* Rote Panda Rot */
 }
 
-/* FAQ Summary (Frage): Clickable, fett */
+/* ========================================
+ * FAQ SUMMARY (Frage)
+ * ========================================
+ * Clickable Frage-Titel mit Cursor-Zeiger
+ */
 .section-faq summary {
     cursor: pointer;
     font-weight: 700;
     outline: none;
 }
 
-/* FAQ Antwort-Text: Dunkelgrau, lesbar */
+/* ========================================
+ * FAQ ANTWORT-TEXT
+ * ========================================
+ * Dunkelgrau mit guter Lesbarkeit
+ */
 .section-faq p {
     margin: 12px 0 0;
     color: #4a4a42;
@@ -803,6 +1457,7 @@ nav.w3-bar a.w3-bar-item.w3-button:hover {
  * TWO-COLUMN SECTION
  * ========================================
  * Text neben Bildkarte mit Wärmeton
+ * RESPONSIVE: Desktop 2 Spalten | Tablet 2 Spalten | Smartphone 1 Spalte
  */
 
 /* Two-Column Layout: Text links, Bild rechts */
@@ -816,6 +1471,24 @@ nav.w3-bar a.w3-bar-item.w3-button:hover {
     padding: 32px;
 }
 
+/* RESPONSIVE: Tablet (768px - 960px) - 2 Spalten beibehalten */
+@media (max-width: 960px) and (min-width: 768px) {
+    .section-two-col {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        padding: 28px;
+    }
+}
+
+/* RESPONSIVE: Smartphone (<768px) - 1 Spalte (Text oben, Bild unten) */
+@media (max-width: 767px) {
+    .section-two-col {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding: 20px;
+    }
+}
+
 /* Text Block Überschrift: Dunkles Rot-Orange */
 .text-block h2 {
     margin-top: 0;
@@ -823,13 +1496,22 @@ nav.w3-bar a.w3-bar-item.w3-button:hover {
     font-size: 2.4rem;
 }
 
-/* Text Block Paragraph: Dunkles, warmes Braun */
+/* ========================================
+ * TEXT BLOCK PARAGRAPH
+ * ========================================
+ * Dunkles, warmes Braun für gute Lesbarkeit
+ */
 .text-block p {
     color: #4a412f;
     max-width: 520px;
 }
 
-/* Bild-Overlay Karte: Dunkel mit Bildhintergrund */
+/* ========================================
+ * IMAGE OVERLAY CARD
+ * ========================================
+ * Bild-Hintergrund mit dunklem Text-Overlay
+ * Erstellt Kontrast für weiße Textüberlagerung
+ */
 .image-overlay-card {
     min-height: 320px;
     border-radius: 22px;
@@ -842,7 +1524,11 @@ nav.w3-bar a.w3-bar-item.w3-button:hover {
     overflow: hidden;
 }
 
-/* Bild-Overlay Dark Gradient: Dunkel unten */
+/* ========================================
+ * IMAGE OVERLAY DARK GRADIENT
+ * ========================================
+ * Dunkles Gradient unten für bessere Textlesbarkeit
+ */
 .image-overlay-card::before {
     content: "";
     position: absolute;
@@ -850,7 +1536,11 @@ nav.w3-bar a.w3-bar-item.w3-button:hover {
     background: linear-gradient(180deg, rgba(13, 38, 22, 0.45), rgba(13, 38, 22, 0.15));
 }
 
-/* Overlay Text: Weiß und lesbar */
+/* ========================================
+ * OVERLAY TEXT CONTAINER
+ * ========================================
+ * Weiße Überschrift und Beschreibungstext
+ */
 .overlay-copy {
     position: relative;
     z-index: 1;
@@ -873,13 +1563,41 @@ nav.w3-bar a.w3-bar-item.w3-button:hover {
  * THREE-COLUMN SECTION
  * ========================================
  * Feature Cards für Kategorien-Info (z.B. Lebensraum, Ernährung)
+ * RESPONSIVE: Desktop 3 Spalten (2fr 1fr 1fr) | Tablet 2 Spalten | Smartphone 1 Spalte
  */
 
-/* Three-Column Grid: Feature Cards */
+/* Three-Column Grid: Feature Cards (2fr 1fr 1fr Layout) */
 .section-three-col {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
     gap: 24px;
+}
+
+/* RESPONSIVE: Tablet (768px - 960px) - 2 Spalten Layout */
+@media (max-width: 960px) and (min-width: 768px) {
+    .section-three-col {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+    
+    /* Die erste große Card sollte auf Tablet die volle Breite nehmen oder die erste Reihe */
+    .feature-large {
+        grid-column: span 1;
+    }
+}
+
+/* RESPONSIVE: Smartphone (<768px) - 1 Spalte Layout */
+@media (max-width: 767px) {
+    .section-three-col {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    /* Alle Cards stapeln sich vertikal */
+    .feature-large,
+    .feature-small {
+        grid-column: span 1;
+    }
 }
 
 /* Feature Card: Weiß mit Schatten */
@@ -890,24 +1608,30 @@ nav.w3-bar a.w3-bar-item.w3-button:hover {
     padding: 28px;
 }
 
-/* Large Feature: Nimmt 1 Spalte */
+/* ========================================
+ * FEATURE CARD VARIANTS
+ * ========================================
+ * Large: Nimmt 1 Spalte, Small: Start oben
+ */
 .feature-large {
     grid-column: span 1;
 }
 
-/* Small Feature: Wird von oben alignt */
 .feature-small {
     display: grid;
-    align-content: start;
+    align-content: start;                    /* Text oben ausrichten */
 }
 
-/* Feature Überschrift: Waldgrün */
+/* ========================================
+ * FEATURE CARD INHALTE
+ * ========================================
+ * Waldgrüne Überschrift mit lesbarem Text
+ */
 .feature h3 {
     margin-top: 0;
     color: #1c3a29;
 }
 
-/* Feature Text: Lesbar */
 .feature p {
     color: #4a4a42;
     line-height: 1.75;
@@ -917,16 +1641,38 @@ nav.w3-bar a.w3-bar-item.w3-button:hover {
  * FOUR-COLUMN SECTION (MINI CARDS)
  * ========================================
  * Kleine charakteristische Attribute des roten Pandas
+ * RESPONSIVE: Desktop 4 Spalten | Tablet 2 Spalten | Smartphone 1 Spalte
  */
 
-/* Four-Column Grid: Mini-Karten */
+/* Four-Column Grid: Mini-Karten (Desktop Layout) */
 .section-four-col {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 18px;
 }
 
-/* Mini Card: Attribute des roten Pandas */
+/* RESPONSIVE: Tablet (768px - 960px) - 2 Spalten Layout */
+@media (max-width: 960px) and (min-width: 768px) {
+    .section-four-col {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+}
+
+/* RESPONSIVE: Smartphone (<768px) - 1 Spalte Layout */
+@media (max-width: 767px) {
+    .section-four-col {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+}
+
+/* ========================================
+ * MINI CARD
+ * ========================================
+ * Kleine Attribute-Karten für das Rote Panda Profil
+ * Zentrierter Text mit Schattenwirkung
+ */
 .mini-card {
     background: #ffffff;
     border-radius: 16px;
@@ -941,6 +1687,7 @@ nav.w3-bar a.w3-bar-item.w3-button:hover {
  * INTERACTIVE SECTION - PROJECT INFO
  * ========================================
  * Content-Karte für Projektbeschreibung
+ * RESPONSIVE: Desktop 2 Spalten | Tablet/Smartphone 1 Spalte
  */
 
 /* Interactive Section: Warmes Gradient-Hintergrund */
@@ -951,11 +1698,31 @@ nav.w3-bar a.w3-bar-item.w3-button:hover {
     margin-top: 30px;
 }
 
-/* Interactive Grid: Zentriertes Layout */
+/* Interactive Grid: Zentriertes Layout (Desktop) */
 .interactive-grid {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
     gap: 24px;
+}
+
+/* RESPONSIVE: Tablet (768px - 960px) - 2 Spalten beibehalten */
+@media (max-width: 960px) and (min-width: 768px) {
+    .interactive-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+}
+
+/* RESPONSIVE: Smartphone (<768px) - 1 Spalte Layout */
+@media (max-width: 767px) {
+    .interactive-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .section-interactive {
+        padding-top: 30px;
+    }
 }
 
 /* Content Card: Weiß mit Schatten */
