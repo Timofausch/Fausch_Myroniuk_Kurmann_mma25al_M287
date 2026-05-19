@@ -1363,7 +1363,7 @@ nav.w3-bar a.w3-bar-item.w3-button:hover {
 
 /* Site Footer: Dunkler waldiger Hintergrund */
 .site-footer {
-    background: #1f3f2b;
+    background: linear-gradient(135deg, #4A2C24 0%, #C84A2F 100%);
     color: #eef1ea;
     padding: 28px 20px 24px;
     margin-top: 40px;
